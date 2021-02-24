@@ -111,14 +111,14 @@ function createInvoker(
     // and the handler would only fire if the event passed to it was fired
     // AFTER it was attached.
     const timeStamp = e.timeStamp || _getNow()
-    if (timeStamp >= invoker.attached - 1) {
+//     if (timeStamp >= invoker.attached - 1) {
       callWithAsyncErrorHandling(
         patchStopImmediatePropagation(e, invoker.value),
         instance,
         ErrorCodes.NATIVE_EVENT_HANDLER,
         [e]
       )
-    }
+//     }
   }
   invoker.value = initialValue
   invoker.attached = getNow()
